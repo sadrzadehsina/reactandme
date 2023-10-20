@@ -15,7 +15,7 @@ export default function Page() {
       {posts.map((post) => (
         <div key={post.url} className="pb-16">
           <Link href={post.url}>
-            <article className="prose prose-neutral md:prose-lg lg:prose-xl dark:prose-invert">
+            <article className="prose prose-neutral md:prose-lg lg:prose-xl dark:prose-invert min-w-full">
               <h2>{post.title}</h2>
               <p className="not-prose">{post.summary}</p>
               <time dateTime={post.publishedDate} className="text-sm">

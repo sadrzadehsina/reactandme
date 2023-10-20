@@ -11,7 +11,7 @@ export default function Page({ params }) {
   }
 
   return (
-    <article className="prose prose-neutral md:prose-lg lg:prose-xl dark:prose-invert">
+    <article className="prose prose-neutral md:prose-lg lg:prose-xl dark:prose-invert min-w-full">
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.body.html }}></div>
       <time dateTime={post.publishedDate} className="text-sm">

@@ -1,0 +1,172 @@
+---
+title: A communication hub for two way host-remote bindings
+summary: By the end of this article, you will have an idea of how to build a “communication infrastructure” that connects MFEs together. My proposal is a way for MFEs to communicate with each other and with the app-shell in a non-dependent manner. This proposal enables MFEs to communicate with each other and the app-shell more effectively.
+publishedDate: 2023-09-02
+tags:
+  - micro-frontends
+  - react
+---
+
+> The term Micro Frontends first came up in ThoughtWorks Technology Radar at the end of 2016. It extends the concepts of micro services to the frontend world. The current trend is to build a feature-rich and powerful browser application, aka single page app, which sits on top of a micro service architecture. Over time the frontend layer, often developed by a separate team, grows and gets more difficult to maintain. That’s what we call a Frontend Monolith.
+>
+> from micro-frontends.org
+
+By the end of this article, you will have an idea of how to build a “communication infrastructure” that connects MFEs together. My proposal is a way for MFEs to communicate with each other and with the app-shell in a non-dependent manner. This proposal enables MFEs to communicate with each other and the app-shell more effectively.
+
+All sample codes are Pseudocode. They are just for showing proposed idea. They are not intended to be used in a real application.
+
+### What is the problem being addressed?
+
+As you move forward, you will encounter many isolated MFEs that you need to combine into a larger container, which I call the app-shell. The big deal is that MFEs need to borrow certain functionalities from their app-shell. For instance, you set up your toaster in the app-shell. Other MFEs, when integrated, use that toaster to display toast messages. From another perspective, putting so much logic into app-shell makes it a fat. Changing the app-shell would be a nightmare at the end of the day.
+
+### What is the solution to this problem?
+
+Keeping app-shell as minimal as possible is the ultimate goal. However, we need to have a way of implementing generic functions such as toast, confirm, etc. Somewhere else, rather than app-shell.
+
+### Prerequisites
+
+- You need to be familiar with frontend development
+- You need to have a basic understanding of react
+- You need to be able to think about micro frontend architecture
+- You are familiar with state management libraries such zustand
+
+### Part 0: What are host and remote
+
+I assume you are familiar with micro frontend terms. However, here’s a quick note about host and remote. Both are standalone applications that can be run independently. They have their own package.json with essential scripts. So, regardless of any circumstances, you can start/develop them.
+
+From another point of view, although remote applications are standalone, there should be some kind of container that puts all these remotes together, which we call the host.
+
+Host or App Shell is a very small - or at least should be small - application that defines layouts, general functionalities such as notifications, and handles routing.
+
+-- image 1
+
+### Part 1: What does not work
+
+With the above explanation in mind, we will now look into one part of app-shell, which displays toast messages. As explained earlier, all other remotes (MFEs) will be consolidated in app-shell. Therefore, something like a toaster should be implemented in a central location that all other remotes can access, such as app-shell. However, putting it into app-shell could make it more susceptible to future changes.
+
+For a few minutes, let’s try not to separate the toaster from the app-shell. We are going to do the wrong thing. Let's assume we have two primary components implemented in the app-shell, toaster and confirm.
+
+```javascript
+// app_shell/toaster
+function Toast({ message }) {
+  return <ToastMessage message={message} />;
+}
+function useToast() {
+  return {
+    showSuccess() {
+      /* show toast with success message */
+    },
+    showError() {
+      /* show toast with error message */
+    },
+  };
+}
+
+// app_shell/confirm
+function Confirm({ message }) {
+  return <ConfirmMessage message={message} />;
+}
+function useConfirm() {
+  return {
+    show() {
+      /* show confirm */
+    },
+  };
+}
+```
+
+So app-shell will be shipped with these two components. Other MFEs would use these components by communicating with app-shell.
+
+```javascript
+// authentication
+import { useToast } from 'app_shell/toaster';
+
+function Authentication() {
+
+ const toaster = useToast();
+
+ useEffect(() => {
+  doSomeAuthenticationStuff()
+   .then(toaster.showSuccess)
+   .catch(toaster.showError)
+ }, []);
+};
+
+// user profile
+import { useToast } from 'app_shell/toaster';
+
+function UserProfile() {
+
+ const toaster = useToast();
+
+ function save() {
+  saveProfile()
+   .then(toaster.showSuccess)
+   .catch(showError);
+ }
+
+ return (
+  <>
+   <h1>User Profile</h1>
+   <button onClick={}>Save</button>
+  </>
+ )
+}
+```
+
+Every update to each of these components results in an update to the entire app-shell. Every change in the toaster requires a whole end-to-end test on app-shell functions. We are making app-shell vulnerable to more bugs and side effects. On the other side, remotes have a direct dependency on app-shell.
+
+### Part 2: What works
+
+So how are we going to decouple app-shell from such components that bring fragility? First, showing a toast message should not be a direct call. Second, managing the state of the toaster should be handled somewhere rather than app-shell.
+
+For building an in-direct manner, I am using a very simple infrastructure which is based on the command design pattern.
+
+> The Command pattern encapsulates actions as objects. Command objects allow for loosely coupled systems by separating the objects that issue a request from the objects that actually process the request. These requests are called events and the code that processes the requests are called event handlers.
+
+And another remote will handle the toaster state, which I name it communication-hub.
+
+```javascript
+// hub
+import { useToast } from "toast";
+
+const commands = {
+  showToast: useToast.getState().showToast,
+};
+
+export const Hub = {
+  runCommand: (command, payload) => commands[command](payload),
+  useValues,
+};
+
+function useValues() {
+  const { toast } = useToast();
+
+  return {
+    toast,
+  };
+}
+```
+
+As before, toaster will work. However, by decoupling toaster from app-shell we ended up to a more solid app-shell that only changes if it should.
+
+Other remotes still can show toast messages.
+
+```javascript
+// authentication
+import { Hub } from "toaster";
+
+function Authentication() {
+  useEffect(() => {
+    doSomeAuthenticationStuff()
+      .then(() => {
+        Hub.runCommand("showToast", "Succeed");
+      })
+      .catch((error) => {
+        Hub.runCommand("showToast", `Error, ${error}`);
+      });
+  }, []);
+}
+```
+
+Check out my [Github repository](https://github.com/sadrzadehsina/micro-frontend-playground/tree/main/communication-pattern) for a working version.

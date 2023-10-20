@@ -1,0 +1,24 @@
+{
+  "title": "A communication hub for two way host-remote bindings",
+  "summary": "By the end of this article, you will have an idea of how to build a “communication infrastructure” that connects MFEs together. My proposal is a way for MFEs to communicate with each other and with the app-shell in a non-dependent manner. This proposal enables MFEs to communicate with each other and the app-shell more effectively.",
+  "publishedDate": "2023-09-02T00:00:00.000Z",
+  "tags": [
+    "hello-world",
+    "first-post"
+  ],
+  "category": "react",
+  "body": {
+    "raw": "\n## Lorem\n\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?\n",
+    "html": "<h2>Lorem</h2>\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?</p>"
+  },
+  "_id": "a-communication-hub-for-two-way-host-remote-bindings.mdx",
+  "_raw": {
+    "sourceFilePath": "a-communication-hub-for-two-way-host-remote-bindings.mdx",
+    "sourceFileName": "a-communication-hub-for-two-way-host-remote-bindings.mdx",
+    "sourceFileDir": ".",
+    "contentType": "mdx",
+    "flattenedPath": "a-communication-hub-for-two-way-host-remote-bindings"
+  },
+  "type": "Post",
+  "url": "/posts/a-communication-hub-for-two-way-host-remote-bindings"
+}

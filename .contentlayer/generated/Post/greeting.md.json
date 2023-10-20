@@ -1,10 +1,10 @@
 {
-  "title": "Greeting",
-  "summary": "summary of my second post",
-  "publishedDate": "2023-04-17T00:00:00.000Z",
+  "title": "Dependency Shadowing",
+  "summary": "There are two types of dependencies when you are working with micro-frontends. Runtime and Build-Time. Each of them has its own pros and cons. It is important to choose the one that works in your situation. Basically, both types fix a part of the problem.",
+  "publishedDate": "2023-09-23T00:00:00.000Z",
   "tags": [
-    "greeting",
-    "second-post"
+    "micro-frontend",
+    "react"
   ],
   "category": "react",
   "body": {

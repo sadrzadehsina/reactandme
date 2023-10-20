@@ -18,13 +18,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <title>React + Me</title>
       <body className={roboto.className}>
         <div className="container mx-auto md:px-20 lg:px-80">
-          <header className="flex gap-x-8 pb-16 pt-10">
+          <header className="flex gap-x-16 pb-16 pt-10 items-center">
             <div className="logo flex-none">logo</div>
             <div className="navigation flex-1">
               <nav>
-                <ul className="flex gap-x-4">
+                <ul className="flex gap-x-4 items-center">
                   <li className="inline-block">
                     <Link href="/about">about</Link>
                   </li>
@@ -32,13 +33,15 @@ export default function RootLayout({
                     <Link href="/posts">blog</Link>
                   </li>
                   <li className="inline-block">
-                    <Link href="/off-topic">off topic</Link>
-                  </li>
-                  <li className="inline-block">
                     <Link href="/workshops">workshops</Link>
                   </li>
                   <li className="inline-block">
                     <Link href="/courses">courses</Link>
+                  </li>
+                  <li className="pl-10 inline-block">
+                    <Link href="/off-topic">
+                      <span className="text-xl">🤦🏻‍♂️</span> off topic
+                    </Link>
                   </li>
                 </ul>
               </nav>
