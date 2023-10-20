@@ -17,12 +17,12 @@ export function Navigation() {
           </li>
           <li className="inline-block">
             <Link href="/workshops" className="text-gray-300 hover:text-white">
-              workshops
+              workshop
             </Link>
           </li>
           <li className="flex-1 inline-block">
             <Link href="/courses" className="text-gray-300 hover:text-white">
-              courses
+              course
             </Link>
           </li>
           <li className="pl-10 inline-block">
