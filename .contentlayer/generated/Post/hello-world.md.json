@@ -1,0 +1,24 @@
+{
+  "title": "Hello World",
+  "summary": "summary of my first post",
+  "publishedDate": "2023-04-16T00:00:00.000Z",
+  "tags": [
+    "hello-world",
+    "first-post"
+  ],
+  "category": "react",
+  "body": {
+    "raw": "\n## Lorem\n\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?\n",
+    "html": "<h2>Lorem</h2>\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?</p>"
+  },
+  "_id": "hello-world.md",
+  "_raw": {
+    "sourceFilePath": "hello-world.md",
+    "sourceFileName": "hello-world.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "hello-world"
+  },
+  "type": "Post",
+  "url": "/posts/hello-world"
+}

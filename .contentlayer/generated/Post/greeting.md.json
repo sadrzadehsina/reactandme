@@ -1,0 +1,24 @@
+{
+  "title": "Greeting",
+  "summary": "summary of my second post",
+  "publishedDate": "2023-04-17T00:00:00.000Z",
+  "tags": [
+    "greeting",
+    "second-post"
+  ],
+  "category": "react",
+  "body": {
+    "raw": "\n## Lorem\n\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?\n",
+    "html": "<h2>Lorem</h2>\n<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eos ea nam tenetur nobis nisi necessitatibus ratione inventore quis\nvitae odit hic quam, aspernatur facere expedita voluptas doloremque. Neque, quam commodi?</p>"
+  },
+  "_id": "greeting.md",
+  "_raw": {
+    "sourceFilePath": "greeting.md",
+    "sourceFileName": "greeting.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "greeting"
+  },
+  "type": "Post",
+  "url": "/posts/greeting"
+}
