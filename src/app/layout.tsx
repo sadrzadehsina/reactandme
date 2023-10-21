@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
 
 import { Navigation } from "@/components/navigation";
 
@@ -22,9 +23,6 @@ export default function RootLayout({
       <body className={roboto.className}>
         <div className="container mx-auto md:px-20 lg:px-60">
           <header className="flex gap-x-16 pb-16 pt-10 items-baseline">
-            <div className="logo flex-none">
-              R + <span className="text-2xl">🧘🏻</span>
-            </div>
             <Navigation />
           </header>
           <div>{children}</div>

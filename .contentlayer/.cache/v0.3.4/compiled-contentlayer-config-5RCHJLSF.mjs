@@ -1,8 +1,6 @@
+// contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
-import highlight from "rehype-highlight";
-import remarkGfm from "remark-gfm";
-
-export const Post = defineDocumentType(() => ({
+var Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: "**/*.mdx",
   contentType: "mdx",
@@ -10,45 +8,45 @@ export const Post = defineDocumentType(() => ({
     title: {
       type: "string",
       description: "Title of the post",
-      required: true,
+      required: true
     },
     summary: {
       type: "string",
       description: "Short summary of the post",
-      required: true,
+      required: true
     },
     publishedDate: {
       type: "date",
       description: "Date that the post was published",
-      required: true,
+      required: true
     },
     tags: {
       type: "list",
       of: { type: "string" },
       description: "List of related tags for further search use cases",
-      required: true,
+      required: true
     },
     category: {
       type: "enum",
       options: ["off-topic", "react"],
       default: "react",
       description: "Category of the post",
-      required: true,
-    },
+      required: true
+    }
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath.split("/").pop()}`,
-    },
-  },
+      resolve: (post) => `/posts/${post._raw.flattenedPath.split("/").pop()}`
+    }
+  }
 }));
-
-export default makeSource({
+var contentlayer_config_default = makeSource({
   contentDirPath: "./src/posts",
-  documentTypes: [Post],
-  mdx: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [highlight],
-  },
+  documentTypes: [Post]
 });
+export {
+  Post,
+  contentlayer_config_default as default
+};
+//# sourceMappingURL=compiled-contentlayer-config-5RCHJLSF.mjs.map

@@ -1,8 +1,11 @@
 // contentlayer.config.ts
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import highlight from "rehype-highlight";
+import remarkGfm from "remark-gfm";
 var Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: "**/*.mdx",
+  contentType: "mdx",
   fields: {
     title: {
       type: "string",
@@ -42,10 +45,14 @@ var Post = defineDocumentType(() => ({
 }));
 var contentlayer_config_default = makeSource({
   contentDirPath: "./src/posts",
-  documentTypes: [Post]
+  documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [highlight]
+  }
 });
 export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-7FKCDT7J.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-6HQO6QIY.mjs.map

@@ -23,8 +23,8 @@ export type Post = {
   tags: string[]
   /** Category of the post */
   category: 'off-topic' | 'react'
-  /** Markdown file body */
-  body: Markdown
+  /** MDX file body */
+  body: MDX
   url: string
 }  
 

@@ -23,7 +23,7 @@ When you need to package a feature, version it, and put it in an NPM-like regist
 
 With all the benefits that build-time dependencies bring, there is one important drawback. Consider that you have multiple MFEs, all requiring a build-time dependency. Changing that dependency results in updating all MFEs, in case they need that change.
 
--- image 1
+<Image src="/dependency-shadowing/1.webp" alt="figure-1" />
 
 This causes a situation that I name premature MFE update. A condition in which MFE is not ready to deploy but is forced to deploy. It is important because you lose control of what you are deploying.
 
@@ -31,6 +31,6 @@ So how to fix this? We still need to have build-time dependencies alongside a wa
 
 This is where dependency-shadowing helps. Consider you have a build-time package called date-helpers. It is responsible for exposing a set of utilities for formatting dates. A few of your MFEs need this. So instead of adding this dependency directly to all MFEs, you can shadow it by creating another MFE called date-helpers-mfe. This latter MFE is just a wrapper that exposes all functions from the original package.
 
--- image 2
+<Image src="/dependency-shadowing/2.webp" alt="figure-2" />
 
 In this way, the only MFE that needs to be updated every time there is a change in the build-time dependency is this one.
