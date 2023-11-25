@@ -256,15 +256,15 @@ export default function Page() {
       className="prose prose-neutral md:prose-lg lg:prose-xl dark:prose-invert min-w-full"
     >
       <div className="h-96 mb-80">
-        <div class="rocket">
-          <div class="rocket-body">
-            <div class="body"></div>
-            <div class="fin fin-left"></div>
-            <div class="fin fin-right"></div>
-            <div class="window"></div>
+        <div className="rocket">
+          <div className="rocket-body">
+            <div className="body"></div>
+            <div className="fin fin-left"></div>
+            <div className="fin fin-right"></div>
+            <div className="window"></div>
           </div>
-          <div class="exhaust-flame"></div>
-          <ul class="exhaust-fumes">
+          <div className="exhaust-flame"></div>
+          <ul className="exhaust-fumes">
             <li></li>
             <li></li>
             <li></li>
@@ -275,7 +275,7 @@ export default function Page() {
             <li></li>
             <li></li>
           </ul>
-          <ul class="star">
+          <ul className="star">
             <li></li>
             <li></li>
             <li></li>
