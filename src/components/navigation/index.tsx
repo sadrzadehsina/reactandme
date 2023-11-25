@@ -5,11 +5,11 @@ export function Navigation() {
     <div className="navigation flex-1">
       <nav>
         <ul className="flex gap-x-4 items-center">
-          <li className="inline-block">
+          {/* <li className="inline-block">
             <Link href="/about" className="text-gray-300 hover:text-white">
               about
             </Link>
-          </li>
+          </li> */}
           <li className="inline-block">
             <Link href="/posts" className="text-gray-300 hover:text-white">
               blog
@@ -20,16 +20,16 @@ export function Navigation() {
               workshop
             </Link>
           </li>
-          <li className="flex-1 inline-block">
+          {/* <li className="flex-1 inline-block">
             <Link href="/courses" className="text-gray-300 hover:text-white">
               course
             </Link>
-          </li>
-          <li className="pl-10 inline-block">
+          </li> */}
+          {/* <li className="pl-10 inline-block">
             <Link href="/off-topic" className="text-gray-300 hover:text-white">
               <span className="text-xl">🤦🏻‍♂️</span> off topic
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>
