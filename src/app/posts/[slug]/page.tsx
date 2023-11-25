@@ -6,8 +6,7 @@ import Image from "next/image";
 
 import type { MDXComponents } from "mdx/types";
 
-// @ts-ignore
-export default function Page({ params }) {
+export default function Page({ params }: { params: any }) {
   const post = allPosts.find(
     (post) => post.url.split("/").pop() === params.slug
   );

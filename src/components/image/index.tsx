@@ -1,6 +1,5 @@
 import NextImage from "next/image";
 
-// @ts-ignore
-export const Image = (props) => {
+export const Image = (props: any) => {
   <NextImage {...props} />;
 };
