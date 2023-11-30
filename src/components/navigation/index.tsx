@@ -5,11 +5,11 @@ export function Navigation() {
     <div className="navigation flex-1">
       <nav>
         <ul className="flex gap-x-4 items-center">
-          {/* <li className="inline-block">
+          <li className="inline-block">
             <Link href="/about" className="text-gray-300 hover:text-white">
-              about
+              about me
             </Link>
-          </li> */}
+          </li>
           <li className="inline-block">
             <Link href="/posts" className="text-gray-300 hover:text-white">
               blog

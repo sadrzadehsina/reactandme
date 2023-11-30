@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Vazirmatn } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 
 import { Navigation } from "@/components/navigation";
 

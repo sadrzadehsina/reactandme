@@ -1,0 +1,194 @@
+<h1>Hi, I'm Sina Sadrzadeh, I'm a full time Frontend Engineer.</h1>
+      <h3>
+        I love working in a team. I strongly believe that&nbsp;
+        <u>Two heads are better than one</u>. I like technical conversations. I
+        am interested in teaching people how to make quality software.
+      </h3>
+
+      <h4 className="py-5 animate-pulse">
+        <a href="#my-cv" className="text-red-500">
+          Do not hesitate to skip all this and check out my CV
+        </a>
+      </h4>
+
+      <p>
+        It's been an incredible decade for me. So much of my life has changed in
+        the last 10 years.
+      </p>
+
+      <p>
+        The 2010's were the years that I was looking for opportunities to work
+        with others. I had no idea how is working in a team. I was unaware of
+        all the hard hours I had to deal with.
+      </p>
+
+      <p>
+        At the same time I that was the year that I went through collage. At the
+        same time, I had to study and work which was really hard for me - but
+        with a lot of fun.
+      </p>
+
+      <p>
+        Living and growing up in Iran is difficult by its nature. Add my
+        confusion about the future and what I am going to do, to it, so it
+        becomes a nightmare.
+      </p>
+
+      <p>
+        It was not that important where I start my career. I just wanted to
+        enter the real world.
+      </p>
+
+      <p>
+        So in 2011's, I start my career by working on something called Adobe
+        Flash. I know it is deprecated now. However that days it has a lot of
+        fan.
+      </p>
+
+      <blockquote>
+        Adobe Flash is a multimedia software platform used for production of
+        animations, rich internet applications, desktop applications, mobile
+        apps, mobile games, and embedded web browser video players.
+      </blockquote>
+
+      <p>
+        For one year or so, I built multimedia for small companies that were
+        trying to introduce themselves to the outside world.
+      </p>
+
+      <p>
+        When I look at those experiences now, I am not sure whether that was a
+        right choice or not. It was like a try-and-error thing for me.
+      </p>
+
+      <p>
+        After a year of working on building multimedia, I found that there is
+        something called <strong>ActionScript</strong>.
+      </p>
+
+      <blockquote>
+        ActionScript is an object-oriented programming language originally
+        developed by Macromedia Inc.ActionScript is used primarily for the
+        development of websites and software targeting the Adobe Flash platform,
+        originally finding use on web pages in the form of embedded SWF files.
+      </blockquote>
+
+      <p>
+        I had no programming experiences until then. After a few weeks of
+        struggling with ActionScript, learning essential concept of programming
+        ( if-else, for-loops, function, class ) I was able to write a simple
+        script. That was a really big step for me.
+      </p>
+
+      <p>
+        By the end of 2012's, I knew I am going to code for the rest of my life.
+        It was a win for me, because I finally had a decision.
+      </p>
+
+      <p>
+        For me, it was a new start with a lot of new challenges. I knew I had to
+        work hard because learning materials at that time were so minimal and
+        hard to access - especially if you were in Iran!
+      </p>
+
+      <p>
+        So after a year of dealing with fundamentals of programming I finally
+        had a chance to work in a company as a Javascript developer. At the end
+        of 2013's, I had a job which I got paid for it. At the same time I was a
+        student of software engineering.
+      </p>
+
+      <p>
+        I live in Isfahan. My first official job was working in team of 8
+        developers. I was the only javascript developer at that team. I
+        implemented a windows like application that was working on the browser.
+        It has start menu, dialogs, alerts, confirms, setting, context menu and
+        a lot of other stuff.
+      </p>
+      {/* TODO: talk about khorasgan university  */}
+      <p>
+        The very first browser I met and working on was Internet Explorer 5.
+        Developing javascript applications was a big deal because of the lack of
+        developer tools of IE5.
+      </p>
+
+      <p>
+        I learned a lot of things. I had a great chance to work with experienced
+        developers. I found a lot of friends. I learned a lot of soft skills. It
+        was a great two years of working until 2015.
+      </p>
+
+      <p>
+        So I left the company and migrated to Tehran. I was faced with a lot of
+        new opportunities. After a few weeks of looking for a new job, I finally
+        found a company called{" "}
+        <a href="https://persiabme.ir/" target="_blank">
+          PersiaBME
+        </a>
+        .{/* TODO: write a few lines here, knockout-js  */}
+      </p>
+
+      <p>
+        Tehran is a tough place to live and work. Especially if you live alone.
+        So after about one year of moving between Isfahan and Tehran, I left the
+        company and came back to Isfahan.
+      </p>
+
+      <p>
+        When I came back to Isfahan - around 2017's, a lot of things have been
+        changed. That was the days when startups started to show up. Small
+        companies were trying to popularize available ideas in Iran. They were
+        looking for developers.
+      </p>
+
+      <p>
+        I introduced with a buzz word, <strong>Frontend Development</strong>.
+      </p>
+
+      <blockquote>
+        Front-end web development is the development of the graphical user
+        interface of a website, through the use of HTML, CSS, and JavaScript, so
+        that users can view and interact with that website.
+      </blockquote>
+
+      <p>
+        Basically, it is <u>JavaScript + CSS + HTML</u>. Not a new thing, but
+        with a more fancy name. So I tried to replan my learning path and step
+        forward in a way to become a frontend developer.
+      </p>
+
+      <p>First thing I was looking for, was a roadmap to follow.</p>
+
+      <p>
+        <a href="https://roadmap.sh/frontend" target="_blank">
+          developer-roadmap
+        </a>{" "}
+        was a popular thing those days. It had a few basic roadmap, now it is
+        updated and cover a variety range of roadmap for different tech stacks.
+      </p>
+
+      <p>
+        In the early 2018's I started working for a startup called Tutti. We
+        were a small team of 4. I was the only developer there at the starting
+        days. I was working on a traditional client-server web application.
+        Backend was written with{" "}
+        <a href="https://about.magento.com/Magento-Commerce" target="_blank">
+          magento
+        </a>{" "}
+        and frontend was pure javascript. We had a team in Poland I guess that
+        were working on the backend development.
+      </p>
+
+      <p>
+        It was my first experience of working in a startup. It was great. I
+        worked with nice guys, learned a lot of things and tried to be a better
+        developer.
+      </p>
+
+      <p>Unfortunately, after one year Tutti died! and I had to move again.</p>
+
+      {/* TODO: write about Yashar */}
+
+      <p>So I had a vibe to build my own business. In the</p>
+
+      <h2 id="my-cv">My CV</h2>
