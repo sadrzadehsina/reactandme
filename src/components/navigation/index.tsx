@@ -7,7 +7,7 @@ export function Navigation() {
         <ul className="flex gap-x-4 items-center">
           <li className="inline-block">
             <Link href="/about" className="text-gray-300 hover:text-white">
-              about me
+              about
             </Link>
           </li>
           <li className="inline-block">
