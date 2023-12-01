@@ -1,9 +1,12 @@
 import { ReactNode } from "react";
 import {
   LiaCalendarAltSolid,
+  LiaGithub,
   LiaHeartSolid,
   LiaLinkedin,
   LiaMinusSolid,
+  LiaPhoneSolid,
+  LiaStackOverflow,
 } from "react-icons/lia";
 import { LiaMapMarkerAltSolid } from "react-icons/lia";
 
@@ -28,6 +31,46 @@ export default function Page() {
         service provided. Emphasizing scalable and well-documented code, I look
         forward to working collaboratively.
       </h5>
+
+      <h3>Contact Me</h3>
+      <ul className="not-prose list-none ml-0 pl-0">
+        <li>
+          <LiaPhoneSolid className="inline-block -mt-1 mr-2 text-lg" />
+          <a href="#" className="no-underline hover:underline">
+            +989133235460
+          </a>
+        </li>
+        <li>
+          <LiaLinkedin className="inline-block -mt-1 mr-2 text-lg" />
+          <a
+            href="https://www.linkedin.com/in/sadrzadehsina/"
+            target="_blank"
+            className="no-underline hover:underline"
+          >
+            linkedin/sadrzadehsina
+          </a>
+        </li>
+        <li>
+          <LiaGithub className="inline-block -mt-1 mr-2 text-lg" />
+          <a
+            href="https://github.com/sadrzadehsina"
+            target="_blank"
+            className="no-underline hover:underline"
+          >
+            github/sadrzadehsina
+          </a>
+        </li>
+        <li>
+          <LiaStackOverflow className="inline-block -mt-1 mr-2 text-lg" />
+          <a
+            href="https://stackoverflow.com/users/2984653/sadrzadehsina"
+            target="_blank"
+            className="no-underline hover:underline"
+          >
+            stackoverflow/sadrzadehsina
+          </a>
+        </li>
+      </ul>
 
       <h3>Working Experience</h3>
 
