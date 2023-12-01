@@ -15,11 +15,11 @@ export function Navigation() {
               blog
             </Link>
           </li>
-          <li className="inline-block">
+          {/* <li className="inline-block">
             <Link href="/workshops" className="text-gray-300 hover:text-white">
               workshop
             </Link>
-          </li>
+          </li> */}
           {/* <li className="flex-1 inline-block">
             <Link href="/courses" className="text-gray-300 hover:text-white">
               course
