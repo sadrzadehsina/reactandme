@@ -75,6 +75,15 @@ export default function Page() {
       <h3>Working Experience</h3>
 
       <WorkHistory
+        title="Frontend Developer ( Vue/Nuxt )"
+        reference="https://www.alibaba.ir/"
+        from="Mar 2024"
+        to="Present"
+        location="Tehran"
+        description="I work as a frontend developer in the B2B team at Alibaba. I create and maintain user-friendly interfaces for our business platforms using HTML, CSS, JavaScript, and Vue/Nuxt. I collaborate with UX/UI designers and backend developers to ensure seamless integration and optimal performance. My focus is on optimizing web applications for speed, scalability, and security to provide a smooth and intuitive user experience for our B2B clients."
+      />
+
+      <WorkHistory
         title="Freelance React Developer"
         reference="https://diagram-app-blond.vercel.app/"
         type="freelance"
