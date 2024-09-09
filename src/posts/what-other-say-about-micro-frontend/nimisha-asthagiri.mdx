@@ -1,0 +1,210 @@
+---
+title: Nimisha Asthagiri - Cheif Architect at edX
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+Our journey with micro-frontends began two years ago to address slow and cumbersome frontend development in a monolithic Django-based architecture. By decoupling the frontend from the backend, we drastically improved developer productivity, reduced deployment time, and enabled frontend developers to work with familiar technologies like npm and webpack. However, challenges included the high cost of replatforming old features without APIs and the need to maintain feature parity, leading to an incomplete replatforming process. We also faced difficulties supporting smaller operators unfamiliar with complex deployment pipelines.
+
+While the adoption of micro-frontends brought significant benefits such as faster development and enhanced developer satisfaction, we encountered issues with backend API availability, which slowed development. To overcome performance concerns, we invested in tools like SpeedCurve and implemented progressive rendering techniques. For design consistency, we developed the Paragon component library. We advise using micro-frontends for scaling large applications but caution against adopting them in small projects or without careful consideration of boundaries and infrastructure.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+Two years ago, we began replatforming our architecture so the frontend is
+decoupled from the backend. We embarked upon this journey since
+frontend development was too painful and too slow in our platform.
+
+We use Django as our web framework, where our frontend views are
+implemented in Django templates and served from the backend, in a
+Python-based development environment. Imagine the developer experience
+of JavaScript-focused frontend developers who were constantly blocked
+and impaired in a monolithic backend environment! (Note there are 1.5
+million lines of code in the monolith and 4.5 million lines of code in the
+platform.)
+
+We formed a team of three that grew to six to tackle this problem and
+establish the basic foundation and initial architectural principles for microfrontends (MFEs) in the platform. Inspired by Tech Radar’s note on MFEs
+and other MFE experiences, I proposed a capabilities model that provided a
+direction for us to move from our monolith to a domain-driven decoupled
+architecture.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+The benefits were tremendous in developer productivity. The developer
+experience dramatically improved with frontend developers using frontendfamiliar technologies such as npm and webpack. The time-to-deploy of
+frontend changes were remarkably reduced to 10 minutes (as opposed to
+multiple hours for the monolith). The frontend code was now reasonably
+sized for cognitive comprehension and decoupled from the accumulated
+complexity of the backend.
+
+One of the major pitfalls was not a factor of MFEs themselves as a
+technique but the high cost of replatforming eight-year-old features that
+didn’t have defined APIs in place (since the UI was server-rendered) and
+our goal to achieve feature parity. We chose to retain parity with the old
+implementation in order to avoid making multiple changes at once
+(technology plus features) that could result in inadvertent business
+performance issues. We also chose to cease the replatforming team after
+rewriting only some high-value pages. As a result, the replatforming effort
+is still not complete. We are thus in a non-ideal state, with some of our
+frontends as MFEs and others still stuck within Django. For the rest, we
+plan to have feature teams rewrite along with UX-product and not
+necessarily with feature parity but using the strangler design pattern.
+
+Another pitfall we faced is in supporting small operators in our open source
+community. These smaller establishments do not have as much experience
+with management of cloud infrastructure, and so introducing new
+deployment pipelines to a previously single-step monolithic deployment
+introduced additional challenges for us to address.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+We have open sourced our own MFE libraries. The following may be useful
+to others:
+
+Frontend-platform is an application framework for micro-frontend
+applications with APIs for logging, analytics, authentication, and
+internationalization.
+
+Frontend-build is a library that provides a foundation for linting (eslint),
+testing (jest), building (webpack), and creating a development server
+(webpack-dev-server).
+
+Also, not necessarily MFE-related, but an OS resource for React
+development: Paragon is a pattern library containing accessible (a11y)
+React components and a SCSS foundation built on Twitter Bootstrap.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+MFEs are a good technique for scaling frontend development in a large
+codebase and across multiple teams. Each MFE has its own boundary,
+which naturally lends itself to team autonomy and smaller cognitive load.
+
+MFEs are too heavy-handed for initial prototypes and smaller
+implementations. In this phase, a simple web framework is easier to manage
+with less infrastructure.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+What worked: the new MFE technique and framework were readily adopted
+by development teams throughout the organization. The significant increase
+in frontend developer velocity and the newly found satisfaction of frontend
+developers were easy to observe and thus advocated for by both the
+technical and business function in the organization.
+
+What didn’t work: the lack of preexisting backend APIs for MFEs to use
+slowed down development. We considered investing in GraphQL to
+alleviate this issue so MFE developers can more easily ask for the data they
+need without being blocked by updating or creating RESTful APIs.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+A deployment infrastructure that scales with the number of MFEs with the
+ability to distinguish between MFE code versions.
+
+A local development environment that is easy to use and develop in.
+
+A testing strategy with appropriate tools for unit testing and API contract
+testing. The latter is needed to catch contract failures by the backend.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+A similar decision process to whether your company is mature and capable
+to implement microservices holds for micro-frontends as well. Even with
+MFEs, there is both a common infrastructure and a common framework that
+the company needs to invest in.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+Overall, we had a pretty smooth transition and adoption of MFEs in the
+organization since we had early support from our leadership team—they
+were onboard early since they knew how painful frontend development was
+prior to this shift.
+
+To help developers, we held hopes-and-fears workshops, training
+workshops, and now have a regular frontend study group to educate and
+communicate cross-team pro tips.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+Our investment in developing the frontend-platform and frontend-build
+libraries [described earlier in this interview] now drastically simplifies the
+creation of a new MFE. Unfortunately, there’s still some one-time manual
+effort whenever a new MFE is created to integrate it with our infrastructure:
+GoCD, Terraform, Travis, Analytics, APM, i18n.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+For performance, we have invested in SpeedCurve and use it as a tool to
+discover performance-impacting user experience. We take deliberate steps
+to design a progressive rendering experience so the immediate initial render
+of the page is speedy with adequate information before further data is
+accessed from the server. Also, we decide what data remains in the browser
+for ready use in subsequent MFE loads. The data may remain in
+localStorage or in a cookie.
+
+For design consistency, we are investing in Paragon (linked above) as our
+design library of reusable components.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+First, ensure this is a path you need to travel since there is upfront
+investment.
+
+Then, choose a small page with very few UI elements to get started. Beyond
+the elements on the page itself, there is a lot of technology, framework, and
+infrastructure that you’ll need to figure out.
+
+For us, in our replatforming effort, we iterated on the framework as we
+implemented new pages. We initially worked on supporting authentication
+and build/deploy of MFEs. Then, we supported i18n and error logging and
+monitoring. Later, we added support for analytics and A/B tests.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+Haphazardly creating MFEs without consideration of their granularity and
+boundaries. Use domain-driven design practices to consider MFE context
+boundaries and names.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+The custom creation and maintenance of the build-and-deployment
+infrastructure are challenges until cloud vendors provide them out of the
+box.
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+http://thoughtworks.libsyn.com/whats-so-cool-about-micro-frontends
+
+<h3>Micro-frontends in three words...</h3>
+
+Delightful Frontend Development

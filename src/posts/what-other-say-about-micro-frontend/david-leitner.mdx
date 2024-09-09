@@ -1,0 +1,139 @@
+---
+title: David Leitner - Cofounder of SQUER Solutions
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+In our experience at SQUER Solutions, micro-frontends are useful when scaling frontend development in large teams and improving resilience and time-to-market issues. We’ve experimented with various approaches, from simple linked applications to advanced client-side integration using web components. However, implementing micro-frontends comes with challenges like maintaining design consistency, which requires a strong design system, and handling distributed system issues like performance and latency, which we mitigated with techniques such as a shared caching layer. Starting with a monolith-first approach is often wise until the domain is well understood for proper frontend splitting.
+
+The developer experience in micro-frontend projects heavily relies on a solid CI/CD pipeline, as much of the complexity shifts to the build-and-deployment process. Performance and design consistency are valid concerns with micro-frontends, but they can be addressed by moving integration to the client and using a mature design system. Ultimately, micro-frontends should only be embraced if the benefits, like independent deployments and scalability, outweigh the downsides for the specific use case. Starting with a monolith and evolving from there is a good strategy for most teams.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+When consulting with our customers, we always stress that microservices
+are about end-to-end verticals that enable independent deployments of
+autonomous parts of an application at a high pace. Following this idea, it
+was clear from the very beginning that we had to somehow make this
+possibility on the frontend parts of these architectures as well. We
+experimented in a dozen projects with different approaches, including
+simple ones, like linked applications, but also more sophisticated ideas, like
+the integration on the client side with web components.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+One big lesson was the impact on the look and feel of huge frontend
+applications. Thus, a micro-frontend architecture must go hand in hand with
+a strong understanding and maturity in design systems. In addition, you also
+have to deal with the classical issues of distributed systems, like
+performance and latency. For example, over the years we discovered that a
+shared caching layer on the frontend is a good idea; it was a game changer
+for how we designed our micro-frontend architectures. And last but not
+least, it’s nearly always a wise decision to start with a monolith-first
+approach.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+Unfortunately, I have not actively contributed to one of them so far, mainly
+because we almost never use off-the-shelf frameworks for our microfrontend architectures. We try to keep the dependencies small and stuck to
+basic web standards, like web components, to build micro-frontends.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+It’s really hard to answer this question without any further context, but I
+think it is important that, as with every new architecture or technology,
+micro-frontends should not be an end in itself. Still, in our experience at
+SQUER Solutions, it shows its benefits mainly when the team size gets too
+big to work on one codebase in the frontend, when resilience issues start to
+erase, or when the time to market is below expectations.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+I think we started to have the maturity that allowed us to spot the right
+points where the frontend should be split up. But especially for client-side
+integration, it’s a daily challenge to let the integration module of your
+micro-frontend architecture not sprawl too big and become a bottleneck.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+In most cases, the concept of monorepo makes a lot of sense: a single repo
+for all the micro-frontend projects, especially to share and ensure
+consistency for commonly used UI components. Besides this, each module
+that is used inside the micro-frontend architecture should, of course, strictly
+follow semantic versioning, and the team should have a common
+understanding about breaking changes.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+As mentioned before, start with a monolith-first approach. Only start to use
+micro-frontends once you understand the domain well enough to split them
+up reasonably
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+I have seen similarities to the introduction of microservices a few years ago,
+which makes total sense, as in both cases distributed architectures are
+introduced. The new challenges are therefore to design micro-frontends to
+be backward compatible and to enforce asynchronous over synchronous
+communication.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+I think a solid CI/CD pipeline is essential. In a micro-fronted architecture,
+most of the complexity moves from a developer’s machine to the build-anddeployment process. Thus, a feature in such an architecture is delivered
+once it’s deployed to production, not once it’s committed to the versioncontrol system. All the tooling should support and align with this thinking.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+Basically, it can be said that these concerns are absolutely justified. The
+question should be whether other advantages of micro-frontends outweigh
+these problems for a specific use case. My rule of thumb for performance is
+the more we strive for performance in a micro-frontend architecture, the
+more we must move the integration to the client. For design consistency, a
+mature design system can usually overcome most of the challenges.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+Don’t be too opinionated, search for diverse resources that will help you
+make decisions. In addition, conference talks are a good source for
+practitioners’ reports and learning from the mistakes others have already
+made.
+
+<h3>
+  Would you like to share some useful resources about micro-frontends?
+</h3>
+
+As mentioned before, I usually like to listen and learn from the experiences
+of others; conference videos on YouTube are a good way to get those
+insights. In addition, the micro-frontend introduction on [Martin Fowler’s
+blog](https://martinfowler.com/) is a good jump start to this topic. Well, and of course, the book readers
+are holding in their hands!
+
+<h3>Micro-frontends in three words...</h3>
+
+Go for it!
+

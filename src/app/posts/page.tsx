@@ -6,8 +6,8 @@ export default function Page() {
     .filter((post) => post.category === "react")
     .sort(
       (first, second) =>
-        new Date(second.publishedDate).getTime() -
-        new Date(first.publishedDate).getTime()
+        new Date(second?.publishedDate!).getTime() -
+        new Date(first?.publishedDate!).getTime()
     );
 
   return (
@@ -19,7 +19,7 @@ export default function Page() {
               <h2>{post.title}</h2>
               <p className="not-prose">{post.summary}</p>
               <time dateTime={post.publishedDate} className="text-sm">
-                {post.publishedDate.split("T")[0]}
+                {post?.publishedDate?.split("T")[0]}
               </time>
             </article>
           </Link>

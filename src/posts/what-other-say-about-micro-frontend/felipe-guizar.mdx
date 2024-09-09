@@ -1,0 +1,207 @@
+---
+title: Felipe Guizar - Senior Software Engineer at Wizeline
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+This developer's experience with micro-frontends centers on migrating existing websites rather than greenfield projects. They adopted micro-frontends to allow gradual migration and integration of new features, rather than overhauling entire platforms at once. The main benefit observed is the ability to keep frontend technologies up to date with developers' expertise, which aids in hiring and retention. However, the architecture adds complexity in managing different pipelines, versioning, and handling authentication.
+
+Key challenges include defining micro-frontend boundaries based on business subdomains, integrating them effectively, and handling authentication. A CLI tool, like the one developed in the Ara Framework, was essential for simplifying the developer experience. While micro-frontends offer flexibility, it's important to define clear boundaries to avoid performance issues and ensure design consistency through reusable components and atomic design systems. This architecture should only be pursued if the challenges align with the business needs.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+I haven’t yet had the opportunity to implement micro-frontends in a
+greenfield project. However, I’ve worked on several projects that migrated
+websites to new technologies.
+
+On those projects, we agreed that migrating from scratch was not a good
+business approach because we can’t deliver new features until we finish the
+migration. Instead, we decided to look for an approach to gradually migrate
+the websites and set the basis for integrating new features easily,
+introducing micro-frontends to our solutions.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+<h5>Context</h5>
+
+Frontend technologies (FE) evolve very fast. For instance, I’ve seen
+companies that started developing their applications using old
+frameworks/libraries (AngularJS, BackboneJS) years ago. At some point,
+new frameworks were introduced in the FE world (React, VueJs), and then
+developers started learning and choosing those as their main tech stack.
+For those companies, it’s difficult to keep developers engaged and hire
+developers who are glad to maintain applications using old technologies.
+
+<h5>Benefits</h5>
+
+Micro-frontends help to evolve applications along with the technologies.
+However, it’s not only about bringing the application up to date in terms of
+technology; it’s also about aligning the company tech stack with the
+developer’s expertise.
+
+<h5>Pitfalls</h5>
+
+This architecture adds more complexity for managing different pipelines,
+versioning and integrating the micro-frontends in the host application.
+Additionally, managing authentication is one of the trickier parts.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+Yes, I’m the creator of Ara Framework.
+Ara Framework makes developing micro-frontends easier by integrating
+any view library (React, VueJS, Svelte) on any web technology/framework,
+such as NuxtJS, GatsbyJS, WordPress, Flask, and more.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+I believe having good knowledge of the business domains is necessary to
+identify each micro-frontend’s boundaries; otherwise, it leads to bad
+abstractions that can introduce more complexity for integrating and
+communicating them.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+Server-side includes using a proxy server work well for integrating
+nonauthenticated micro-frontends in non-JavaScript frameworks. This
+approach helps us to migrate partial views from WordPress to React along
+with the content necessary to render those views.
+
+In the early days of the project, we tried to use authenticated microfrontends using server-side rendering through the SSL proxy server (Nova
+Proxy). We faced issues forwarding the authentication header, but we
+realized we could just render those views from the client side using a kind
+of client-side include (Nova Bridge). Here are a few relevant resources:
+
+https://ara-framework.github.io/website/docs/nova-architecture
+
+https://ara-framework.github.io/website/docs/nova-bridge
+
+Also, centralizing the SSL proxy server created the main point of failure.
+We tackled it by using the server as a sidecar proxy.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+A command-line interface (CLI) for scaffolding, running services locally,
+and easily deploying micro-frontends.
+
+For example, Ara Framework has a CLI to create new micro-frontends for
+different view libraries, and commands to run Nova Proxy and Nova
+Cluster locally.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+Evaluate the problems you’re trying to solve against the challenges you’ll
+face implementing this architecture.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+It encouraged developers to be more involved in the business side,
+promoting a common language that improves communication. It also
+encouraged developers to be more involved in making architectural
+decisions.
+
+However, when micro-frontends were announced in 2019 in the
+ThoughtWorks Radar as an “adopt technique” in the social networks, there
+were some misunderstandings about the main goal of micro-frontends. It’s
+still challenging to introduce the architecture to developers biased by those
+comments.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+As I mentioned before, a CLI tool significantly improves the developer
+experiences. However, we needed to extend the Ara CLI to automate
+deployments and provisioning infrastructure necessary to run the
+application.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+I believe performance issues related to loading several micro-frontend
+views on the same page is a sign that micro-frontend boundaries are not
+well defined. A user flow can involve several subdomains, but the user only
+interacts with one at a time. For example, when a user navigates to the
+product listing page (product subdomain) and chooses a product, they
+finally go to the payment page (payment subdomain).
+
+I recommend lazy-loading each micro-frontend entry point based on routing
+(routes usually represent a subdomain involved in a user flow).
+
+Obviously, there are cases when we have several subdomains on the same
+page. For example, in an article page, we have the content itself (content
+subdomain) and the comments and rating section (content feedback
+subdomain). Users mainly view an article to read the content. Microfrontends give us the flexibility to server-side render the content and make
+it available as soon the user opens the page, and we can let the browser
+client-side render the other sections on demand (lazy-loading based on
+scrolling).
+
+Regarding design consistency, I suggest using design systems with reusable
+components that are domain agnostic. Atomic design is a good
+methodology for implementing design systems in micro-frontends.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+Define the micro-frontends’ boundaries based on the business subdomains,
+and identify subdomains that interact together in the user flows.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+Avoid thinking of micro-frontends as components we can deploy and
+integrate independently (we can use Module Federation instead). Microfrontends are views that represent a business subdomain.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+Identifying the business subdomains and defining the micro-frontend
+boundaries.
+
+Looking for an approach to aggregate them in the host application.
+Handling authentication and authorization.
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+Luca’s resources on Medium: https://oreil.ly/PeGl7
+
+Ara’s articles: https://oreil.ly/tGYD2
+
+Micro-Frontends Using Vue.js, React.js, and Hypernova: https://oreil.ly/oFY3R
+
+Serverless Micro-Frontends Using Vue.js, AWS Lambda,
+and Hypernova: https://oreil.ly/7WLtF
+
+Strangling a Monolith Application with Micro Frontends
+Using Server Side Includes: https://oreil.ly/LDYED
+
+This curated list of resources on GitHub: https://oreil.ly/lJvk6
+
+<h3>Micro-frontends in three words...</h3>
+
+Evolutionary, resilient, agile.
+
+

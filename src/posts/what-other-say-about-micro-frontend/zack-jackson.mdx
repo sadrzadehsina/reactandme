@@ -1,0 +1,203 @@
+---
+title: Zack Jackson - Principle Engineer of Luluemon 
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+This developer has extensive experience building micro-frontend (MFE) architectures since 2015, having developed large-scale projects, including a stack with 150 MFEs and platforms for companies like Starbucks and Lululemon. They highlight that the main benefits of MFEs are faster independent deployments, reduced engineering overhead, and greater scalability compared to monolithic applications. However, they also point out challenges, including managing shared code and dependencies, ensuring seamless UX between micro-frontends, and overcoming performance concerns. Tools like Webpack 5 Module Federation, single-spa, and GitLab CI are essential for handling the complexities of MFE development and deployment.
+
+The developer advises using micro-frontends for larger companies with multiple teams that need fast and independent deployment, while smaller companies may not benefit from the added complexity. A key takeaway is the importance of designing for future scalability, centralizing shared code, and avoiding fragmented platform layers. They stress that UX should not be sacrificed for developer convenience, and emphasize the need for careful planning to ensure the system can handle growth over time.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+I have exclusively built micro-frontend stacks for companies since 2015.
+The largest stack I’ve built consisted of 150 separate micro-frontends. It
+consisted of a shared component library; feature-based components used the
+component library, but most features were deployed independently as
+micro-frontends. The range of what the micro-frontends were made of was
+pretty wide. Some were single components, some were full features, and
+others were whole pages or user flows.
+
+I designed the Starbucks inventory management platform, used by all its
+stores. This stack consisted of six separate micro-frontend applications with
+helper services for authentication.
+
+At Lululemon, I am building a powerful stack that leverages an AppShell
+and Module Federation and that enables drag-and-drop refactors as features
+or code that can be moved between servers with no need for regression or
+extra engineering time. I’ve extended Module Federation beyond managing
+seamless micro-frontend experiences, into analytics, A/B testing, and
+configuration management—all while remaining standalone and
+independently deployable at any time, providing evergreen code to
+consumers.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+One pitfall was poor code sharing. Sharing vendor code is manual and
+primitive, causing centralized dependency on an external set of vendors,
+and upgrading package versions is complex as breaking changes would
+require all micro-frontends to be prepared for the upgrade of a shared
+vendor.
+
+Another was poor UX. When moving between micro-frontends, a page will
+reload. There are very few solutions to sharing global state or making
+micro-frontends work as well as a monolithic SPA. Huge amounts of time
+can go into improving the UX.
+
+The benefits of micro-frontends outweigh the pitfalls at scale. Code can be
+deployed independently, builds are faster, regressions are easier to run, and
+the blast radius of a critical failure is well contained. It saves engineering
+time and company money, as features can be delivered at a fast rate, unlike
+in a monolith, where the rate of delivery slowly degrades as the codebase
+increases in size and complexity. Micro-frontends remove the harsh
+requirement of communication and coordination overhead between teams.
+They are also cheaper to run and scale because you can use cheaper, lesspowerful servers. Unlike a monolith, you can scale per page or per
+component on cheaper hardware instead of scaling expensive and powerful
+hardware to meet the base demands and memory consumption of the entire
+monolith.
+
+Micro-frontends are far more agile, and they safeguard companies against
+site-wide critical failures. Redundancy layers can be built easier, and teams
+can model a platform to fit their needs instead of using a one-size-fits-all
+model that monolithic platforms enforce.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+Next.js, webpack 5 core, single-spa, React Static, and Module Federation
+extensions and enhancements.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+Small companies will likely not benefit from the engineering overhead.
+Larger companies with challenges at scale or companies with multiple
+teams who rapidly deploy are likely best suited to benefit from distributed
+JavaScript applications.
+
+Regardless of use case and scale, it’s very important to design your platform
+from the ground up to handle scale. If you foresee rapid scale in the future,
+designing a system that can be migrated into a distributed application model
+is key. You’ll save time and money by avoiding a full-scale rewrite.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+Automatic vendor sharing was challenging, routing between the separate
+apps and making that route transition seamless were a major challenge, and
+maintaining authentication sessions and sharing state were very challenging
+as well. My current micro-frontend project has been designed to avoid these
+issues by rethinking how applications interface with each other and are
+designed in general.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+Webpack 5 Module Federation is a massive unlock, single-spa provides a
+strong orchestration layer, Next.js with a custom AppShell, and yarn
+workspaces that serve as sub-apps is a robust design pattern, which can
+enable scale and can integrate with Module Federation if or when needed.
+Micro is another fantastic tool for creating an ingress to route a user to the
+correct micro-frontend. Leveraging monorepos keeps code organized but
+will still have the pitfall of having only one master branch, bottlenecking
+deployments. Semantic-release is vital for micro-frontend architecture,
+where semver plays an important role in the scalability and reliable code
+distribution.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+Give Module Federation a try. Most importantly, design a system that
+supports scale. Think about monorepos, feature binding, how bound a page
+or feature is to a specific server, and how hard it would be to split some of
+the app into another micro-frontend at a later point in time. Avoid hard
+binding to a server; build software that can be easily migrated to a new
+stack. Globals like shared state should encapsulate a page or feature,
+keeping it independent and unbound to the server. Moving a page or feature
+to another server instance should be built in a way that will provide any
+globals needed out the box, not involve multiple copy-pastes of various
+parts of the application. GitLab CI is powerful and a strong contender for
+sophisticated infrastructure requirements.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+Development time decreases and efficiency usually quadruples. Introducing
+the pattern has given development teams a better experience and the ability
+to move more code through the pipeline at a faster rate. Challenges
+revolved around performance concerns from SRE and getting developers
+used to working in more than one repo at the same time. In highly granular
+MFE stacks, it can be a learning curve to run multiple MFEs locally and to
+get used to having several IDEs open, depending on what feature is being
+developed.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+Kubernetes, custom router and auth layers, shared global packages, and
+special script to boot and run all MFEs in one place for full workflow use.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+Webpack 5 Module Federation is the best solution to this problem. There
+are no performance concerns or design consistency issues. Code is shared at
+runtime; it’s evergreen.
+
+A non-webpack-5 solution would be to use renovate bot and depend on
+abstraction for distribution or have the micro-frontends supply a render API
+to allow other applications to retrieve HTML and other resources over a
+network call. Ultimately, these are better ways to share feature and vendor
+code along with automation around upgrading dependencies.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+Figure out how it’s going to scale. Centralize shared code, utilities, and data
+calls. Make sure the platform layer does not become fragmented when
+managing several independent servers. Think about routing and how you
+will map various routes to their MFEs.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+Not abstracting core code to npm. Copy-pasting server infrastructure, which
+leads to maintenance challenges and fragmentation at the platform level.
+Either an application shell or server shell should exist, which holds highlevel aspects, like auth, user state, tooling, and translation configurations.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+Avoiding UX degradation in favor of DX improvement; neither should be
+compromised. Thinking out how your MFE stack is going to look and work
+in one year’s time with over 10 stacks: does it architecturally scale?
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+Here is a good resource: “Webpack 5 Module Federation: A Game-Changer
+in JavaScript Architecture”
+
+<h3>Micro-frontends in three words...</h3>
+
+Cheap, flexible, scalable.
+
+

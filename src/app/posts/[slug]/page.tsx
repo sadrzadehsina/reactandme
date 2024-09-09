@@ -37,7 +37,7 @@ export default function Page({ params }: { params: any }) {
         <MDXContent components={mdxComponents} />
       </div>
       <time dateTime={post.publishedDate} className="text-sm">
-        {post.publishedDate.split("T")[0]}
+        {post?.publishedDate?.split("T")[0]}
       </time>
     </article>
   );

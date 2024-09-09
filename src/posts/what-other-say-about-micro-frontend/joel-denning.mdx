@@ -1,0 +1,237 @@
+---
+title: Joel Denning - Frontend Software Dev and Independent Consultant
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+This developer has extensive experience with micro-frontends (MFEs), having implemented them at five companies and consulted with several more. They highlight the primary benefits, including independently deployed MFEs, which enable team autonomy, incremental migration from legacy systems using the "strangler pattern," and the flexibility to use the best tools for specific tasks. The ability to hire developers with diverse technical backgrounds is also a plus. However, the developer warns of increased complexity, both conceptually and technically, as well as potential issues like duplicated dependencies and deployment dependencies between MFEs.
+
+The developer notes that MFEs are ideal for organizations with multiple teams that need independent deployments and technical decision-making, but advises against their use for small teams or projects with heavy inter-MFE communication. They emphasize that successful adoption requires careful attention to technical infrastructure, such as CI/CD pipelines, and organizational buy-in. While DevOps and some developers may initially resist the transition, the end result can be a more modular, flexible, and scalable frontend architecture. However, pitfalls include the complexity of converting legacy systems and managing shared infrastructure.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+I’ve implemented micro-frontends at five companies and consulted with
+several dozen more. I created several example repositories: e.g., for Vue
+micro-frontends, React micro-frontends, and polyglot micro-frontends. I
+talk to people every day in the single-spa Slack workspace and GitHub
+issue queues about implementing micro-frontends.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+Pros:
+
+* Independently deployed micro-frontends are a huge organizational
+win. This is the primary benefit in my opinion.
+
+* Incremental migration between frameworks, with “strangler
+pattern.” If you can convert your existing app into a microfrontend, you can start adding new micro-frontends without
+rewriting the old one. This lets you introduce the new framework
+without the cost of rewriting everything.
+
+* Ability to hire developers with a larger range of talents, since they
+can work in more technologies rather than living with the one set
+chosen for a monolith.
+
+* Ability to use the “best tool for the job.” Does that React library
+solve everything? Use it. Does that Vue library solve everything?
+Use it.
+
+Cons:
+
+* Conceptual complexity. It takes a while to explain what’s going on
+to everyone.
+
+* Technical complexity. Separate CI processes, in-browser module
+loader, Module Federation, and so on.
+
+* Possibility for duplicated dependencies between micro-frontends,
+which is worse for performance than a single monolithic build.
+There are solutions to this, but they are often not implemented
+perfectly.
+
+* Deployment dependencies between micro-frontends are a new
+thing to consider that don’t exist if you have a single deployable.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+Yes, single-spa and all its helper projects (single-spa-react, single-spa-vue,
+single-spa-angular, import-map-deployer, import-map-overrides, SystemJs,
+etc.).
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+Use micro-frontends when:
+
+* You’re trying to migrate away from an old framework or monolith.
+
+* You want independent deploys for separate dev teams.
+
+* You want some level of independent technical decision making for
+separate dev teams (which date formatting lib to install, which
+React CSS lib, or perhaps even which UI framework).
+
+* You want to split your UI into highly cohesive, loosely coupled
+sections. This comes from the Building Microservices O’Reilly
+book.
+
+Avoid micro-frontends when:
+
+* You don’t want to do micro-frontends.
+
+* Your monolith is working well for you.
+
+* There is only one dev on the project.
+
+* Separate deployments cause more pain than benefit due to
+deployment dependencies. This occurs especially when you have
+very few developers.
+
+* Your micro-frontends regularly engage in heavy, chatty
+communication. If the micro-frontends are talking to each other all
+the time, perhaps you should not be using micro-frontends.
+
+* Your dev team does not have the technical expertise, time, or desire
+to manage a more complex system.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+What worked:
+
+* We created a separately deployable project with its own
+package.json, build, and CI process. This was a huge win over our
+PHP/Laravel monolith that built React with an old version of node
+and gulp.
+
+* We were able to free ourselves from many of the technical
+decisions of the past.
+
+* We were able to create a style guide / component library that lets
+us collaborate with UX a lot easier.
+
+What didn’t work:
+
+* DevOps was very resistant and took a lot of convincing. The new
+CI pipelines and infrastructure took a long time to build.
+
+* Some devs confuse micro-frontends with React. They were new to
+it and couldn’t tell what things came from what.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+import-map-overrides
+They allow you to develop one micro-frontend at a time instead of
+running all of them locally.
+
+single-spa
+The most popular open source framework for micro-frontends that I’m
+aware of.
+
+import-map-deployer
+A clear way to achieve independent deployments for your separate
+projects.
+
+Import maps
+A separate name of the micro-frontend from its URL. This is important
+for independent deploys.
+
+SystemJs
+For in-browser module and import maps polyfill support.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+Look at your backend code’s architecture and evaluate whether it is
+working for you. It often makes sense for your backend and frontend
+architecture to match. If one is a monolith, the other should be. If one is
+microservices, the other should also be microservices.
+
+Look at how your organization gets things done. If your organization’s
+culture is geared toward product ownership, team autonomy, and distributed
+decision making, then micro-frontends might make sense. If it’s more of a
+centralized decision-making process, then it might not make sense.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+Where are the lines between micro-frontends and a UI framework? What is
+doing what? How do the pieces fit together? What does this repo (or that
+repo) do? What’s the mental model for the whole system?
+
+<h3>What was the developer experience like in your last project?</h3>
+
+See https://github.com/joeldenning/import-map-overrides. You do npm
+install and npm start. Then you go to a deployed environment and
+set up an override so that it uses your local version of the micro-frontend
+instead of the deployed version.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+For shared dependencies, see https://oreil.ly/w2LFu.
+For design consistency, create a shared style guide module and/or choose a
+design system such as bootstrap. See https://oreil.ly/YZyB6 and
+https://oreil.ly/UdK5G.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+1. Create a PoC to help you decide whether you want to do it.
+2. Convert your existing app to a single micro-frontend. Release it to
+production.
+3. Pull out shared navigation into its own micro-frontend. Release it
+to production.
+4. Implement your next new feature as its own micro-frontend.
+Release that to production.
+5. Pull out a small part of your monolithic app into its own microfrontend. Release that to production.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+* Splitting them up too much or incorrectly, such that they’re all
+highly coupled
+
+* Shared, single deployment for all your micro-frontends
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+* Converting your existing code into a micro-frontend, so that future
+code can be split into separate micro-frontends
+
+* Setting up CI/CD
+
+* Organizational buy-in, trust, and training
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+This YouTube playlist is great:
+https://oreil.ly/Okqtm
+
+<h3>Micro-frontends in three words...</h3>
+
+Microservices for frontends.
+

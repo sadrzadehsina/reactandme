@@ -16,13 +16,14 @@ export type Post = {
   /** Title of the post */
   title: string
   /** Short summary of the post */
-  summary: string
+  summary?: string | undefined
   /** Date that the post was published */
-  publishedDate: IsoDateTimeString
+  publishedDate?: IsoDateTimeString | undefined
   /** List of related tags for further search use cases */
-  tags: string[]
+  tags?: string[] | undefined
   /** Category of the post */
   category: 'off-topic' | 'react'
+  parent?: string | undefined
   /** MDX file body */
   body: MDX
   url: string

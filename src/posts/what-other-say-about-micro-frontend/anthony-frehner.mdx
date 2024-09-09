@@ -1,0 +1,236 @@
+---
+title: Anthony Frehner - Frontend Architect
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+This developer's experience with micro-frontends (MFEs) began at CanopyTax, where multiple squads worked autonomously using the single-spa framework. They highlight the benefits of MFEs, such as team independence, shared infrastructure for consistent updates, lazy-loading for improved performance, and a better developer experience with smaller bundles and faster load times. However, they caution against assuming MFEs are a silver bullet, noting potential challenges like occasional widespread updates, CSS conflicts, and the overhead of maintaining shared infrastructure. Despite these, the overall experience with MFEs has been positive, especially in supporting gradual migration and integration of legacy systems without major rewrites.
+
+They also note that while MFEs are great for large teams with strong infrastructure, smaller teams may find the architecture overkill. A key lesson from their experience is to avoid the complexity of supporting multiple frameworks unless necessary, and to focus on cohesive, low-coupled MFEs. They also recommend sticking to one framework whenever possible to reduce performance issues. The developer experience has been overwhelmingly positive, with faster build times and easier maintenance, but requires openness to learning new infrastructure like CI/CD pipelines and module bundling tools.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+I was introduced to micro-frontends (MFEs) when I joined CanopyTax,
+which is the company where Joel Denning and Bret Little (the creators of
+single-spa and related tools) worked. It was an amazing transition to be in a
+place where anywhere from 6 to 12—depending on the situation—squads
+were able to work autonomously. (Squads is a term that was taken from the
+Spotify model, but essentially they’re full teams that are centered around a
+feature instead of being organized by role.)
+
+I left Canopy because another company was interested in setting single-spa
+up for two reasons: 1) to enable future growth and scale, and 2) to help
+gradually sunset their legacy application and write new code, while running
+both side by side. I like to think we were successful at both, and the
+company was later acquired.
+
+I think that was one of the first implementations of single-spa that used
+SystemJS 3.0 with import maps, so it was fun to see how these new
+standards greatly simplified the infrastructure required for single-spa. That
+infrastructure would also later help form the foundation for single-spa’s
+“recommended setup.”
+
+My current company is currently investigating using single-spa because it
+acquired a company that built a tool in a different frontend framework than
+the one we use, and we would like to potentially integrate the two without
+having to do a major rewrite of either.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+You’ve heard this a thousand times, but MFEs aren’t a silver bullet. That
+being said, they have some great pros and a couple of cons to be aware of.
+
+Here are the pros:
+
+* Team/squad independence. No release trains, code freezes, merge
+conflicts, long-lived feature branches, QA frustration with testing
+environments changing/not changing, etc.
+
+* A shared infrastructure that means that everyone is always on the
+latest version of a library. For example, designers love it because
+changes to your style guide go out instantly to the whole app.
+
+* A (variable) amount of freedom to experiment and let the best
+technologies rise out of those experiments, instead of being stuck
+on the legacy technology because of either the fear of trying
+something and it failing or not wanting to rework your whole app.
+
+* Lazy-loading built-in, which means a better and faster user
+experience.
+
+* Bundle sizes and speeds comparable to a monolithic app. There’s a
+misconception that MFEs are significantly bigger and slower than
+a monolith, and that’s simply not true.
+
+* Ability to seamlessly combine legacy software with new software
+and to integrate software that may have come through an
+acquisition with in-house software.
+
+* An amazing developer experience. You only have to run a single
+MFE locally at a time, while all the others can just run their
+production code. Nearly every single developer that I’ve worked
+with has mentioned how much better the DX is for them over a
+monolithic setup.
+
+* For single-spa at least, it’s based on web standards: ES modules,
+import maps, etc.
+
+* Teams that are focused on vertical slices of the app translate into
+teams that are specialized and know their feature set really well.
+
+* However, there are some cons as well:
+
+* On rare occasions, you will need to do an update on all your MFEs,
+which is a monotonous task.
+
+* The shared infrastructure can be a double-edged sword. For
+example, it’s great to have your style guide update for everyone at
+the same time, until you accidentally break something and now it’s
+broken everywhere.
+
+* This is minor, but you need to ensure that your CSS is scoped so
+that one MFE’s CSS doesn’t conflict with another’s.
+
+* The infrastructure takes a bit more work than just building a
+monolith. However, to put it into perspective, in my experience,
+the vast majority (~90%) of DevOp’s time was spent working on
+the backend’s microservices infrastructure.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+I’m a core-team member of single-spa, so I’ve worked on the library itself
+as well as the documentation, browser plug-in, example repos, and so on,
+and I am active in the Slack channel. I’ve been a participant in other
+projects related to MFEs, namely SystemJS, the Import Map specification,
+and webpack’s Module Federation plug-in.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+I generally don’t recommend them for small teams of one to five
+developers. That being said, there are still situations where that can make
+sense. Beyond that, it really comes down to how comfortable (or willing to
+learn) you are with frontend architecture, such as CI/CD pipelines and
+webpack/rollup configurations.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+Almost everything went well, except for one thing: the decision to support
+multiple frameworks by using web components. In practice, that turned into
+everyone still only using one framework, but at the cost of additional time
+and overhead to support web components instead of using framework-
+specific components. My recommendation is to stick to just one framework
+when at all possible.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+With single-spa, it’s really just about getting the infrastructure up and
+running; after that, the tools used on a day-to-day basis are exactly the same
+as a monolith. For the infrastructure, you need to understand import maps
+and webpack/rollup configuration and have a way to scope your CSS. It’s
+also important to understand coupling and cohesion and how they relate to
+microservices. You want MFEs that are highly cohesive and have low
+coupling in order to succeed.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+Ask yourself for what purpose do you want this infrastructure? If you’re
+doing it because you’re a small team but you want independent deploys, it
+may not be worth the effort.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+When I’ve had genuine conversations with developers about it, they
+generally are open to the idea but don’t know how to set it all up in practice.
+After helping them out, they’re almost always excited about it all and love
+it.
+
+I’ve had conversations with people who are very hesitant about certain
+aspects (e.g., “the infrastructure is difficult” or “what about consistent
+styles?”), and the conversations generally go well, even if they still decide
+to not implement them. That’s OK! Not everyone is up to the task of
+spending a couple days to work on infrastructure, but at least some
+misconceptions were dispelled.
+
+And then there’s been conversations with people who are completely
+unwilling to listen and just want to make memes about MFEs. In those
+situations, there hasn’t been much I could say that would help them
+understand.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+Excellent. There are open source tools for doing MFE overrides with
+single-spa, so that makes working on an MFE easy. Additionally, running
+only a portion of your whole app locally means that when you hit the save
+button, webpack takes only a fraction of a second to update instead of
+multiple seconds to recompile.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+Regarding performance, you mainly just need to put constraints on your
+team, such as saying, “We’ll only support Vue, not any other framework.”
+Just doing that will take care of 90% of your performance issues; the other
+10% is no different than taking care of performance for a monolith.
+
+As far as design consistency goes, that’s actually a straw man put up by
+people who haven’t used modern MFEs. You’ll find that your designs will
+actually be more consistent when you only have to deploy your style guide
+once and it’s updated for all apps everywhere, instead of needing to npm
+install your style guide in each app.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+Go to one of the example websites that exist for single-spa and set up an
+override for one MFE. Try it out and see what you like and don’t like. Then
+find us on GitHub, Twitter, or on Slack and ask questions.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+Just because you can have multiple frameworks doesn’t mean you should.
+It’s still recommended to try and stick to one framework if at all possible.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+Your willingness to be open to new ideas and to work on infrastructure such
+as CI/CD pipelines and webpack/rollup. You also need to understand when
+you should create a new MFE versus adding to an existing one.
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+We try to keep the single-spa website up to date. Also, the single-spa Slack
+channel is open to anyone, and we frequently talk about tech-related things
+besides single-spa in the #randomstuff channel. The book Building
+Microservices is a good reference, even though it’s very backend focused.
+
+<h3>Micro-frontends in three words...</h3>
+
+Enables team independence.

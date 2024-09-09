@@ -1,0 +1,161 @@
+---
+title: Philipp Pracht - Architect and Product Owner at SAP
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+In my experience, micro-frontends offer significant benefits for large-scale UI development, especially when multiple teams work on different parts of an application. In past projects like YaaS, introducing micro-frontends enabled teams to take ownership of their UI components and release independently, resulting in impressive efficiency gains. However, the main challenges often stem from team dynamics, where some individuals struggle to adapt to the philosophy of independent, self-empowered teams. Tools like Luigi, an open-source micro-frontend framework, help maintain flexibility while providing structure, allowing developers to work autonomously while ensuring cohesion.
+
+The key to success with micro-frontends is balancing technical and organizational aspects. Micro-frontends should only be used when the scope and team size justify them; otherwise, a conventional approach may suffice. Tools that emulate main applications, like CLI tools or playgrounds, are critical for developers to test and ensure smooth integration. Performance and design consistency concerns can be mitigated with mechanisms like caching and preloading, while consistency in design is achievable through shared CSS and UI components. The biggest pitfall to avoid is introducing monolithic layers elsewhere in the stack, as this negates the advantages of micro-frontends.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+I’m currently working on [project Luigi](https://luigi-project.io/), a technology-agnostic microfrontend framework for admin and business UIs. Before that, I was working
+on the user interface part of YaaS (a microservice-centric platform and
+commerce-as-a-service solution), where we successfully established a
+micro-frontend architecture back in 2014, before the term “microfrontends” even existed.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+The main benefit is the efficiency boost for any large-scale UI development
+landscape with multiple teams. In my previous project, I was part of the
+team responsible for the UI. There were more than 20 teams developing
+microservices. After we established a micro-frontend architecture (again, it
+wasn’t called that back then) and asked the service teams to take ownership
+of their UI parts, I was extremely impressed and surprised by how well it
+worked out. After a short technical introduction, all teams were able to
+develop and release completely independently, and we never heard back
+from most of them. It just worked.
+
+The main pitfalls were not on a technical level but rather with some people
+who did not really stick to the philosophy of micro-frontends or even of
+independent, self-empowered teams in general. Sometimes this led to longlasting and unproductive discussions.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+Apart from Luigi, which is open source, I contributed to Kyma, a platform
+based on Kubernetes for extending applications with serverless functions
+and microservices. Luigi started out as a Kyma side project, with the goal of
+extracting the micro-frontend architecture of Kyma’s admin console into a
+framework so that it can be reused in other applications. Of course, Kyma is
+now using Luigi.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+In general, there is a correlation between the (predicted) functional scope
+and the benefits of using a micro-frontend architecture. If you are certain
+your UI will have a fixed set of UI components and will be developed by
+only one team, then you should go with a conventional approach. For all
+other scenarios, you should check if there is a micro-frontend framework
+out there that can help you. Even small projects can benefit from something
+like Luigi, as it offers some extra features that go beyond a pure microfrontend framework.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+On a technical level, everything worked and there were no major issues.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+Tools for reliable development and testing environments are key.
+Developers should feel confident at all times that what they are currently
+implementing will work in the bigger context. For example, in my previous
+project, we offered a CLI tool with which developers could run an emulated
+main application with their micro-frontend included.
+
+An excellent IDE is also a must.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+As with any trend, read about the topic first, then lean back and think about
+it from different angles. Think about the possible impact for people in
+different roles and try to come to a good understanding of where microfrontends would be a good fit—not only from a technical point of view but
+also when it comes to organization structures and people.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+From my experience with introducing Luigi, developers were happy with it
+in general, probably because Luigi helps where help is needed but doesn’t
+impose anything—developers still had full freedom within their boundaries.
+In my previous project, though, there were situations where developers had
+problems focusing only on their part.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+In project Luigi, we created a tool called [Luigi Fiddle](https://fiddle.luigi-project.io/), a playground where
+you could try out most of our core functionality. It turned out to be pretty
+helpful, especially for onboarding new developers.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+This depends heavily on the approach you choose, especially the
+performance topic. For example, Luigi has various mechanisms (like the
+“viewgroups” concept, caching, preloading) to mitigate performance issues
+for the end user. With concerns about design consistency, I was a bit
+surprised when I found out people consider this an issue. I usually ask them
+how they ensure design consistency in an app that doesn’t use microfrontends, and the answer is something like “This is not a problem, because
+we have the same CSS.” Eventually, most of them realize that you can also
+share CSSs across different applications. You could also develop Angular
+components that are not consistent with the rest of the app, so it is the
+developer who ensures consistency, because they want their piece of UI
+looking good in its context.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+Think about how you want to subdivide your UI, then have a look at Luca
+Mezzalira’s micro-frontend decision framework. Also, check if there is
+already a framework out there that fits your requirements.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+Avoid introducing a monolithic layer somewhere else in your stack, because
+you lose most of the benefits from micro-frontends. Micro-frontends work
+best with microservices.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+The main challenge would be if your organization structure isn’t a good fit.
+Your management has to set up a structure where dedicated units (a single
+dev team in the easiest case) can independently deliver end-to-end features.
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+All publications from Luca Mezzalira, of course. There is also a good
+explanation of micro-frontends on [Martin Fowler’s website](https://martinfowler.com/). And, of course,
+you can look at the [project Luigi website](https://luigi-project.io/) and our YouTube channel, where
+you can find Luigi-specific content, as well as some general information
+about micro-frontends.
+
+<h3>Micro-frontends in three words...</h3>
+
+Divide and conquer!
+

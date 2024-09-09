@@ -15,31 +15,35 @@ var Post = defineDocumentType(() => ({
     summary: {
       type: "string",
       description: "Short summary of the post",
-      required: true
+      required: false
     },
     publishedDate: {
       type: "date",
       description: "Date that the post was published",
-      required: true
+      required: false
     },
     tags: {
       type: "list",
       of: { type: "string" },
       description: "List of related tags for further search use cases",
-      required: true
+      required: false
     },
     category: {
       type: "enum",
       options: ["off-topic", "react"],
       default: "react",
       description: "Category of the post",
-      required: true
+      required: false
+    },
+    parent: {
+      type: "string",
+      required: false
     }
   },
   computedFields: {
     url: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath.split("/").pop()}`
+      resolve: (post) => ["/posts", post.parent, post._raw.flattenedPath.split("/").pop()].filter(Boolean).join("/")
     }
   }
 }));
@@ -56,4 +60,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-D23AM5DX.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-L76VXTUJ.mjs.map

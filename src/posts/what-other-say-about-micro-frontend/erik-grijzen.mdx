@@ -1,0 +1,362 @@
+---
+title: Erik Grijzen - Software Engineer
+category: nested
+parent: what-other-say-about-micro-frontend
+---
+
+<div className="bg-blue-600 border-blue-950 border-r-4 border-b-4 px-4 py-2">Read this summary</div>
+
+At New Relic, we adopted a micro-frontends architecture to address issues related to user experience consistency, UI extensibility, and inefficiencies in development. Our previous monolithic single-page applications resulted in inconsistent UI and forced users to switch between different apps, losing context. By shifting to micro-frontends, we enabled teams to work autonomously, focusing on specific business domains, which sped up development and improved code quality. Automation and standardization were crucial to managing the resulting multiple codebases, allowing teams to build faster with less repetitive work.
+
+While micro-frontends provided significant benefits like team autonomy and easier scaling, we faced challenges in maintaining UX consistency and performance. To mitigate this, we introduced constraints, such as requiring teams to use specific technologies and maintaining a centralized design system. We also optimized performance through strategies like lazy loading, code-splitting, and deduplicating dependencies. This architecture worked well for large-scale development but comes with trade-offs that smaller projects may not need. Proper infrastructure, tools, and communication are essential for success with micro-frontends.
+
+<hr />
+
+<h3>What is your experience with micro-frontends?</h3>
+
+My experience with micro-frontends has been solely working on this new
+platform within New Relic over the last three years. Let me give you some
+context on how we ended up deciding to use this architecture, because I
+think this is quite interesting and I believe many other companies find
+themselves in a similar position.
+
+New Relic is a fast-growing company, and in the last 10 years, it has built
+many different products. All these products were built separately as
+monolithic single-page applications that were linked together through one
+common navigation. This approach was very successful until more or less
+three years ago, when we discovered that we had several problems related
+to the consistency of our user experience, extensibility of our UI, and the
+way we did UI development within our company. Let me go over each one
+of these problems to explain them a bit more in depth.
+
+Many of our customers were starting to have more and more complex
+systems because they were adapting to a microservices architecture and
+moving towards the cloud. As a result of this, our users were forced to
+switch constantly between our separate applications to troubleshoot
+problems in their systems. Despite all the best efforts of our UI engineers,
+our products were all working and looking slightly different (in some cases
+very different), which led to undesirable user experiences. On top of that,
+switching between applications also caused our users to lose the context of
+the issues that they were troubleshooting, which was an even bigger
+problem.
+
+The landscape of technology (software, tools, programming languages,
+integrations, open source, etc.) that our customers wanted to instrument and
+observe was (and still is) exploding. It’s almost impossible to keep up, so it
+was clear that we wanted a new approach where we could provide new
+functionality for our users in an easy and fast manner. Besides that, we also
+noticed that some customers had very specific use cases that only applied to
+them. To also cover these cases, we wanted to provide a way to make our
+user interfaces programmable so that they could extend the platform for
+their specific needs.
+
+We also saw that inside our company, many UI engineers were doing a lot
+of duplicate efforts regarding project setup, tooling, configuration, etc. We
+wanted to reduce the toil and boilerplate that each team has to go through to
+build new features so that they could spend more time on building
+innovative and creative product solutions for our users.
+
+It turned out that a micro-frontends architecture was a perfect fit for us to
+tackle these problems. Users are demanding more unified product
+experiences, but it’s not easy to build a product with hundreds of UI
+engineers at the same time, especially when they are located in different
+offices around the world and in different time zones. And in our case,
+allowing customers to build on top of the platform as well made the
+problem even more difficult. In the end, we decided that a micro-frontend
+architecture was how we wanted to scale our UI development within our
+organization.
+
+<h3>
+  What benefits and pitfalls did you encounter in your journey with
+  micro-frontends?
+</h3>
+
+In our experience, this architecture has very similar benefits and downsides
+that you can expect from using a microservices architecture on the backend.
+However, there are a few exceptions to this due to the nature of how
+browsers work.
+
+Let’s start with the benefits. I believe the main topics that we should cover
+where we noticed the biggest differences are the following:
+
+* Team autonomy
+* Small and decoupled codebases
+* Modeled around a business domain
+* Automation and standardization
+
+To scale the UI development inside our organization, the most important
+thing we wanted to achieve was for teams to work autonomously. They
+should be able to deploy new code whenever and as many times as they
+want without depending on any other team. Each team should be crossfunctional, meaning they have every role (designer, frontend engineer,
+backend engineer, QA engineer, etc.) on the team to build the functionality
+they want, so that they can do a complete end-to-end implementation. This
+means they have full ownership and can take all the responsibility for one
+or more related micro-frontends that are part of a specific business domain.
+
+This is important because this allows parallel development without slowing
+down when more and more teams are working on our platform.
+
+To achieve this autonomy from a technical point of view, the microfrontends must be loosely coupled, so that they don’t depend on each other,
+and whenever they interact they should have clear contracts. Each microfrontend is also small in size so that they are easier to reason about (you
+don’t need to know the whole system), easier to test, and you can easily
+add, change, or remove them over time.
+
+Our micro-frontends are modeled around a business domain or subdomain,
+because this aligns better with the structure of our business. It creates fewer
+team dependencies, gives teams more autonomy, and improves the
+communication to make quick decisions so that teams can iterate over
+features faster. To give a more concrete example, one team could be
+organized around the domain of NodeJS application monitoring. They are
+highly specialized and are subject-matter experts on that topic, which
+typically results in higher-quality code and better solutions for our end
+users.
+
+With our micro-frontend architecture setup, we moved from several
+monolithic single-page applications to many small micro-frontends that are
+composed at runtime into one unified platform. This resulted in an
+explosion of a lot of small codebases, which are each owned by separate
+teams. It was very important to be prepared for this because this
+architecture introduces a lot of repetitive work and duplication. That’s why
+it’s very important to have the proper infrastructure, tools, and
+standardization in place. We automated every step in the development
+process, from project creation and pipeline build to continuous integration
+and continuous deployment, basically providing everything that the team
+needs, so they can focus on building functionality that our users love.
+
+Let’s move now to some of the pitfalls we encountered using microfrontends. In our journey, the two hardest parts were:
+
+* UX consistency
+* Performance
+
+Every architecture comes with trade-offs. I don’t think we have a perfect
+solution to make the UI always consistent and performant, but we try to
+mitigate the downsides as much as we can. In most cases, this means
+putting certain constraints in place and reducing the autonomy of teams. For
+example, we have a constraint in place that every team should use a specific
+version of the ReactJS library to build their user interfaces. This obviously
+limits the teams from using any technology they want, but we think it’s
+worth it because this constraint reduces the performance costs a lot for our
+users. We don’t want to limit innovation in the organization, but when we
+try out new technologies and we carefully evaluate the impact it has on the
+system, we then update the organization standards and move this innovation
+to the platform level, so that everyone can benefit from it.
+
+When you have many teams working on the same platform, the consistency
+of the UI is at risk. To reduce this downside as much as possible, we think
+it’s critical to at least have a design system in place. This won’t magically
+make everything consistent, but I think without it, you will definitely be in a
+world of trouble. In our experience, this design system is best owned and
+maintained by one team. This doesn’t mean others cannot contribute, but
+there’s one team making sure it aligns with the bigger picture.
+
+We’ve tried an open source model where everyone could contribute to the
+design system, but this didn’t work out for us, because when everyone is
+responsible for it, nobody is responsible for it. Maintenance work, bug
+fixes, and keeping everything aligned with the bigger picture are especially
+hard to do in this setup. To further improve consistency, we also
+implemented an SDK that all micro-frontends have access to. This SDK has
+all the UI components from our design system and provides several APIs to
+standardize certain patterns such as navigating around the platform.
+
+To make sure our platform stays as performant as possible, we have several
+things in place. First of all, the platform is built with the application shell
+model, which makes it very minimal and fast-loading to achieve a good
+initial perceived performance for the users. When the platform is loaded, we
+lazy-load the micro-frontends based on the client-side routing, which allows
+us to only load the minimal JavaScript and CSS necessary to render the
+screen. To reduce the payload size of the assets we load and memory
+consumption of the application, we think it’s necessary to deduplicate the
+frontend dependencies as much as possible. On the platform level, we
+provide some dependencies (i.e., ReactJS) that we are sure every microfrontend is going to need. We do that by defining those dependencies as
+webpack externals so that these don’t get bundled up for each microfrontend. This alone reduces the bundle sizes by an incredible amount. For
+each repository that contains micro-frontends, we are code-splitting the
+bundles so that we can lazy-load them incrementally at runtime inside the
+platform. The last thing we do is provide the previously mentioned SDK on
+the platform level by injecting it in each micro-frontend. This reduces the
+need to use other npm dependencies, which should decrease bundle sizes
+even more.
+
+<h3>
+  Did you contribute to any OSS project related to microfrontends? If so, which
+  one?
+</h3>
+
+No, I’m not contributing to any open source projects at the moment. I
+looked into several of the bigger micro-frontend frameworks and libraries a
+while back, but none of them really matched with how we wanted this
+architecture to look for our platform.
+
+I’ve been asked several times if we will open source what we’ve built at
+New Relic. Unfortunately, we don’t have any plans to do so. I think that
+what we have right now is too tailored for our needs, and we would have to
+change it quite a bit before it would make sense to release it to the public.
+
+<h3>
+  When would you suggest using micro-frontends, and when should we avoid them?
+</h3>
+
+Using an architecture like this comes with a lot of trade-offs that have to be
+evaluated carefully and need to make sense for your project and company.
+Typically, the benefits outweigh the downsides when you need to scale your
+UI development to a lot of teams, which normally only happens for midsize
+to large companies. So my recommendation is to not use this architecture
+for small projects or companies. If you’re not sure you need microfrontends, you most likely don’t need them. Just start simple; you can
+always slowly migrate to micro-frontends over time when there’s a need for
+them.
+
+<h3>
+  At the end of your last micro-frontend project, what worked and what didn’t?
+</h3>
+
+I never officially completed a project using micro-frontends. We are
+continuing to evolve the architecture of the platform as the product and
+organization change over time. I consider it nearly impossible to get the
+architecture right from the start, so you are guaranteed to encounter things
+that are not working as you might expect. Our current architecture is very
+different than the one we started with three years ago.
+
+What really worked well for us was to set up some ways to regularly
+communicate and get feedback from other teams. This was crucial in
+adjusting over time and refining the balance on several architectural topics.
+I think we have been too restrictive in some areas, and we had to put some
+more restrictions in other places to get the results that we wanted. We try to
+keep a close eye on what’s not working for us and adjust over time to
+improve the situation.
+
+<h3>
+  What are the must-have tools for developers to have an efficient experience
+  with micro-frontends?
+</h3>
+
+This depends on a lot of things, because there are many ways you could
+implement micro-frontends based on the requirements of the project, its
+business requirements, and how your company is organized. But generally
+speaking, you want to make it as easy as possible for teams to be
+successful, whatever that implies in your context.
+
+At New Relic, we’ve built a command-line interface that utilizes our
+internal infrastructure and tools to provide teams with everything they need
+to develop features fast. Almost everything you can think of is automated,
+from project creation to the final deployment to production. We are in a
+very competitive market, so for us, it’s vital to have a fast time to market,
+be able to quickly iterate on features based on the feedback from the user
+and spend as little time as possible on technical configuration, setup, and
+other repetitive boilerplate.
+
+<h3>
+  What would you suggest for a person who wants to embrace this architecture?
+</h3>
+
+Micro-frontends are not a silver bullet. Just like with any architecture, there
+are many trade-offs to be made. You have to find the right balance between
+those trade-offs that works best for your project, company culture, and
+organization. What typically happens is that you go from one or several big
+codebases to many small codebases. That’s why I think it’s important as a
+company to make sure you first have the necessary infrastructure, tooling,
+and standardization in place to support this architecture before you make
+the change.
+
+<h3>
+  What was the impact of introducing micro-frontends to developers who didn’t
+  know about them? What challenges have you faced?
+</h3>
+
+I think people don’t talk about this a lot, but introducing micro-frontends
+can be quite a cultural and organizational change that requires kind of a
+shift in the way you work. This might come as a surprise sometimes to
+developers who never worked with such an architecture. For us, this was a
+change that happened slowly over time, so as more and more teams
+onboarded to work on top of the new platform, the company and the people
+slowly transitioned to this new way of working.
+
+Especially for the teams that were building micro-frontends on top of the
+platform in the early stages, it was not always easy. They didn’t always
+have everything they needed and there were still dependencies and things
+that were blocking them from completing their work. This has improved a
+lot over time, with better communication, documentation, resources, and
+better tooling in place to support developers from day one.
+
+<h3>What was the developer experience like in your last project?</h3>
+
+To build micro-frontends on top of our platform, you have to use a
+command-line interface. Both our customers and internal teams can use this
+to extend the platform with all different kinds of micro-frontends. This CLI
+automatically takes care of the project setup, pipeline build, continuous
+integration, and continuous delivery. This allows for rapid feature
+development; you can go from idea to production within hours.
+
+When you create a new project, it automatically scaffolds the repository
+with all the required dependencies, structure, configuration, version control,
+and integration with internal tools. By default, there are many npm scripts
+configured to take care of typical developer experience, such as local
+development, linting, prettifying, bundling, testing, and other automated
+tasks to make sure that what you build will work within the platform. When
+we do pull requests, we automatically generate URLs to test the changes
+against the platform, which makes code review much smoother. Finally,
+when a pull request gets merged, we automatically create a release for our
+continuous delivery system, which makes it easy to deploy a specific
+version to any environment, do rollbacks, and so forth.
+
+<h3>
+  Many developers are concerned about performance and design consistency with
+  micro-frontends. What are your suggestions for overcoming these challenges?
+</h3>
+
+As I mentioned, we don’t have a perfect solution, but we try to reduce the
+downsides as much as we possibly can in the context of how we implement
+micro-frontends in New Relic.
+
+My suggestion would be to carefully evaluate the importance of these
+topics; based on that, you can define the appropriate constraints on the
+autonomy of the teams that are building micro-frontends. The more
+constraints you put in place, the more you can reduce the downsides. You
+will probably end up with a middle-ground solution that is best suited for
+your project and organization.
+
+<h3>What are the first steps for working with microfrontends?</h3>
+
+It’s hard to give specific recommendations on how to start working with
+micro-frontends because this depends so much on the type of project,
+culture, organization, and the size of the company. The way we have
+organized, set up, and architectured our UI development with microfrontends might be a complete disaster for another company.
+
+Some general recommendations for when you get started:
+
+* Make sure you find the right balance of trade-offs that work for
+you.
+
+* Make sure to communicate and get feedback, so you can adjust
+architectural decisions to overcome challenges.
+
+* Make sure you have enough infrastructure, tooling, and
+standardization in place that support this architecture.
+
+<h3>
+  Can you share the main thing to avoid when working with micro-frontends?
+</h3>
+
+The main goal of micro-frontends is to scale the UI development within the
+organization. So the main thing to avoid is creating dependencies between
+teams or blocking the development of teams in any way.
+
+<h3>
+  What are the main challenges in embracing this architecture from your
+  perspective?
+</h3>
+
+I think the main challenge is to tackle some difficult trade-off decisions,
+where you are forced to choose between the autonomy of teams and the
+user experience of the end users. This is not always easy, but I think with
+time, you will always find a good middle ground for each of these tradeoffs.
+
+<h3>Would you like to share some useful resources about micro-frontends?</h3>
+
+If you are reading this, you already have the best resource at hand. I would
+also recommend your [YouTube talks](https://oreil.ly/AdyzO), especially for those who are new to
+micro-frontends.
+
+<h3>Micro-frontends in three words...</h3>
+
+Scaling UI development.
+
+
